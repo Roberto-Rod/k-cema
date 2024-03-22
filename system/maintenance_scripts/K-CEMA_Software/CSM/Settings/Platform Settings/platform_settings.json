@@ -1,0 +1,27 @@
+{
+    "logging":
+    {
+        "<default>": "info"
+    },
+    "ab_serial_port":
+    {
+        "baudrate": 115200,
+        "port": "/dev/ttyUL7"
+    },
+    "rcu1_serial_port":
+    {
+        "baudrate": 115200,
+        "port": "/dev/ttyUL2"
+    },
+    "rcu2_serial_port":
+    {
+        "baudrate": 115200,
+        "port": "/dev/ttyPS8"
+    },
+    "gps_serial_port":
+    {
+        "baudrate": 9600,
+        "port": "/dev/ttyUL4"
+    },
+    "power_off_delay_ms": 3000
+}

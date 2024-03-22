@@ -1,0 +1,10 @@
+cd /
+umount /tmp
+umount /dev/mmcblk0p2
+mount /dev/mmcblk0p2 /tmp
+rm -rf /tmp/test
+rm /tmp/*.tgz
+tftp -g 169.254.94.83 -r KT-956-0231-00_v002.tgz -l /tmp/p2.tgz
+tar -xvzf /tmp/p2.tgz -C /tmp
+rm /tmp/p2.tgz
+umount /tmp

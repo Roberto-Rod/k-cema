@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<SynplifyOutput>
+	<result>Success</result>
+	<design>top_level</design>
+	<target_verilog>C:\workspace\k-cema\hw-test\csm\csm_pcb_zero_fpga_clk_out_test_utility\synthesis\top_level.vm</target_verilog>
+</SynplifyOutput>

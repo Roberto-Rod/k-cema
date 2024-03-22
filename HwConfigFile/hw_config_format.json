@@ -1,0 +1,47 @@
+{
+	"Version 1":
+	{
+		"item1":
+		{
+			"name":"Assembly Part Number",
+			"type":"information",
+			"length_bytes":16,
+			"addr_offset":0
+		},
+		"item2":
+		{
+			"name":"Assembly Revision Number",
+			"type":"information",
+			"length_bytes":16,
+			"addr_offset":16
+		},
+		"item3":
+		{
+			"name":"Assembly Serial Number",
+			"type":"information",
+			"length_bytes":16,
+			"addr_offset":32
+		},
+		"item4":
+		{
+			"name":"Assembly Build Date/Batch Number",
+			"type":"information",
+			"length_bytes":16,
+			"addr_offset":48
+		},
+		"item5":
+		{
+			"name": "Hw Config Version",
+			"type": "version",
+			"length_bytes": 1,
+			"addr_offset": 253
+		},
+		"item6":
+		{
+			"name": "checksum",
+			"type": "CRC16-CCITT",
+			"length_bytes": 2,
+			"addr_offset": 254
+		}
+	}
+}

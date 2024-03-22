@@ -1,0 +1,108 @@
+This is version 1.6.3 of the KT-956-0231-00 EMA Platform Tests archive
+
+1.6.3
+Corrected cal file recreation for EHB DDS cal
+
+1.6.2
+test_pa_calibrate: restored EHB DAC cal on 8 GHz port down to 5700 MHz
+
+1.6.1
+test_pa_calibrate: setting XCVR path using GPIO3P3
+
+1.6.0
+Added dac_test.py, jesd204b.py, nvme_tx.py files to allow DAC to be initialised and to allow IQ data to be streamed
+from NVMe SSD to DAC
+
+1.5.3
+test_rx_calibrate_lb - The limits in test_rx_calibrate_lb.py were adjusted to compensate for Low Band NTM RF Low Gain (DEV-38).
+
+1.5.2
+test_pa_calibrate, test_rx_calibrate_lb, test_calibrate_mb_hb - allowing Power Meter and Signal Generator Service IP
+addresses to be specified
+
+1.5.1
+test_pa_calibrate, test_rx_calibrate_lb, test_calibrate_mb_hb - writing cal files to /run/media/mmcblk0p2
+
+1.5.0
+test_pa_calibrate - supporting DAC cal in MB, HB, EHB
+
+1.4.10
+test_pa_calibrate - checking DAC PGOOD before LB DAC PA calibration
+
+1.4.9
+test_pa_calibrate - supporting LB DAC PA calibration
+fans - initialising I2C variable in constructor to support sys_test_ipam_get_temperature
+ipam - applied correct current scaling for manpack
+
+1.4.8
+test_pa_calibrate - using single fan for manpack HB calibration to maintain approx. +50°C throughout calibration
+
+1.4.7
+test_rx_calibrate_mb_hb, calibrating MB, HB and eHB Rx
+test_pa_calibrate, replacing previous EHB cal if it already existed
+
+1.4.6
+test_pa_calibrate, temperatures increased for manpack PA cal
+
+1.4.5
+Added pcm_set_dummy_hw_config.py for use in manpack systems
+
+1.4.4
+sys_test_full_power_tone.py - support eHB
+Added other test scripts which have been used for debug
+
+1.4.3
+ad9528.py - using LVDS Boost mode for XCVR clock in MB/HB
+Added led_utils.py
+
+1.4.2
+Extended Rx LB calibration and saving cal data
+
+1.4.1
+Supporting 8 GHz port PA calibration
+
+1.4.0
+Supporting manpack & eHB NTM in PA calibration; auto-detecting types
+
+1.3.4
+Updated hardware_unit_config and ema_rf_hw_config to support KBAN NTM types
+
+1.3.3
+test_nvme_ssd.py unmount /dev/nvme0n1 before attempting to remount to /tmp
+
+1.3.2
+rx_control.py detecting location of rftool
+
+1.3.1
+killall commands killing KCemaEMAApp and ema_app.bin
+
+1.3.0
+test_nvme_ssd using absolute paths for system commands to support being called over SSH in EMA module test
+
+1.2.7
+Added LB TxDAC tone generation and calibration scripts
+
+1.2.6
+Applied min. pass power 0.1 dB below target power to HB IPAM
+
+1.2.5
+Set HB target power to +46.0 dBm with a min pass power equal to the target power
+
+1.2.4
+Added target power offset as a parameter to the test configuration table in test_pa_calibrate
+
+1.2.3
+Updated ad96xx.py to include ./ in path to adctool/adctrim
+
+1.2.2
+HB IPAM pass limit relaxed by 0.5 dB to -1.0 dB in the range 5600 to 6000 MHz
+LB IPAM start attenuation changed from 30 dB to 40 dB
+
+1.2.1
+Resetting IPAM BIT flags when sys_test_jam starts jamming
+
+1.2.0
+Masking out external blanking when IPAM enabled
+
+1.1.0
+Added NVMe test to KT-000-0134-00 and KT-000-0135-00 tests

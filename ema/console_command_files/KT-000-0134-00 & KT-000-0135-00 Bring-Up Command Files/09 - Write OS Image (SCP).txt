@@ -1,0 +1,8 @@
+cd /
+umount /tmp
+umount /dev/mmcblk0p1
+mount /dev/mmcblk0p1 /tmp
+rm /tmp/*.ub
+scp kcema@169.254.22.175:/KT-956-0199-00-v4.14.0-2-042d71b4.ub /tmp/image.ub
+y
+kcema

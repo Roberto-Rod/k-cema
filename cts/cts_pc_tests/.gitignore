@@ -1,0 +1,9 @@
+.idea/
+.venv/
+__pychache__/
+build/
+dist_prod_test_gui/
+dist_scan_task_gui/
+dist_test_gui/
+innosetup/
+test_results/

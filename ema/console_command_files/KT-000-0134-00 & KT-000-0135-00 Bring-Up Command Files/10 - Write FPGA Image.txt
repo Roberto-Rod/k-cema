@@ -1,0 +1,7 @@
+cd /
+umount /tmp
+umount /dev/mmcblk0p1
+mount /dev/mmcblk0p1 /tmp
+rm /tmp/*.bin
+tftp -g 169.254.94.83 -r KT-956-0189-00_v0.0.1.bin -l /tmp/system.bin
+umount /tmp

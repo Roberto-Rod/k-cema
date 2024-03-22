@@ -1,0 +1,2 @@
+[console_scripts]
+build_exe = py2exe.build_exe:main

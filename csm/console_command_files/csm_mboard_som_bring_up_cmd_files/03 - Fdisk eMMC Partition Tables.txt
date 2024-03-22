@@ -1,0 +1,22 @@
+
+umount /dev/mmcblk1p1
+umount /dev/mmcblk1p2
+fdisk /dev/mmcblk1
+d
+
+d
+
+n
+p
+1
+
++128M
+y
+n
+p
+2
+
+
+y
+w
+partprobe /dev/mmcblk0

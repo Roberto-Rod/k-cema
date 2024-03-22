@@ -1,0 +1,3 @@
+setenv ipaddr 169.254.0.1
+setenv serverip 169.254.94.83
+tftpboot KT-956-0199-00_v4.14.0-2b-d7136525.ub

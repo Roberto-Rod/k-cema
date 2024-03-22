@@ -1,0 +1,11 @@
+.vscode
+__pycache__
+build/
+calibration/*.s2p
+dist/
+test_equipment/__pycache__
+test_reports/
+Thumbs.db
+.venv/
+innosetup/
+dist_icts_rf_board_test/

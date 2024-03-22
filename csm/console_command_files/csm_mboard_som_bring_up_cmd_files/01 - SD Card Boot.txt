@@ -1,0 +1,5 @@
+env default -a
+saveenv
+fatload mmc 0 0x10000000 system.bin
+fpga load 0 0x10000000 4045564
+boot

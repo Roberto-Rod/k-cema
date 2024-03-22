@@ -1,0 +1,14 @@
+.vscode
+__pycache__
+build/
+calibration/*.s2p
+dist/
+plots/
+test_equipment/__pycache__
+test_reports/
+*.iq
+/*.png
+*capture.py
+*capture.out
+*transmit.py
+*transmit.out

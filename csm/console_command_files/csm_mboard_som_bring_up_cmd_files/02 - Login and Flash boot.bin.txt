@@ -1,0 +1,6 @@
+root
+root
+
+
+cd /run/media/mmcblk0p1
+flashcp -v boot.bin /dev/mtd8

@@ -1,0 +1,88 @@
+# Microsemi I/O Physical Design Constraints file
+
+# User I/O Constraints file 
+
+# Version: v12.4 12.900.0.16
+
+# Family: IGLOO2 , Die: M2GL025 , Package: 484 FBGA
+
+# Date generated: Mon Sep 28 12:46:39 2020 
+
+
+# 
+# User Locked I/O Bank Settings
+# 
+
+
+# 
+# Unlocked I/O Bank Settings
+# The I/O Bank Settings can be locked by directly editing this file
+# or by making changes in the I/O Attribute Editor
+# 
+
+
+# 
+# User Locked I/O settings
+# 
+
+set_io clk_out_1mhz    \
+    -pinname H1        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io gpo             \
+    -pinname G1        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io i2c_scl        \
+    -pinname J1       \
+    -fixed yes        \
+    -DIRECTION INPUT
+
+
+set_io i2c_sda        \
+    -pinname J2       \
+    -fixed yes        \
+    -DIRECTION INOUT
+
+
+set_io zer_fpga_rst_n  \
+    -pinname J3        \
+    -fixed yes         \
+    -RES_PULL Up       \
+    -DIRECTION INPUT
+
+
+set_io zer_qspi_sel    \
+    -pinname K7        \
+    -fixed yes         \
+    -RES_PULL Up       \
+    -DIRECTION OUTPUT
+
+
+
+# 
+# Dedicated Peripheral I/O Settings
+# 
+
+
+# 
+# Unlocked I/O settings
+# The I/Os in this section are unplaced or placed but are not locked
+# the other listed attributes have been applied
+# 
+
+
+#
+#Ports using Dedicated Pins
+
+#
+
+set_io devrst_n       \
+    -pinname R15      \
+    -DIRECTION INPUT
+
+

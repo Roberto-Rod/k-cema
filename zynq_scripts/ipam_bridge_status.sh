@@ -1,0 +1,2 @@
+devmem 0x40031000
+devmem 0x4003100C

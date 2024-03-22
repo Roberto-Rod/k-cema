@@ -1,0 +1,22 @@
+Using Python 3.10.7 available on the PATH as "python" at a command prompt:
+cd <directory where Active Backplane Python test scripts are located located>
+python -m venv .venv
+.venv\Scripts\activate.bat
+pip install serial
+pip install tenma_serial
+pip install pythoncrc
+pip install fabric
+pip install py2exe
+
+Run the following commands to make the executable:
+python active_backplane_prod_test_gui_setup.py py2exe
+
+This generates the executable, the entire contents of folder dist_prod_test_gui are required to run the executable:
+dist_prod_test_gui\active_backplane_prod_test_gui.exe
+
+To make the installer for the Active Backplane Production Test GUI:
+Install Inno Setup Compiler, https://jrsoftware.org/isdl.php
+Open active_backplane_prod_test_gui.iss with Inno Setup Compiler and run the compiler
+
+This generates the installer:
+"innosetup\K-CEMA Active Backplane Production Test vx.y.z Setup.exe"

@@ -1,0 +1,18 @@
+Microsemi Corporation - Microsemi Libero Software Release v12.4 (Version 12.900.0.16)
+
+Date      :  Tue Sep  1 12:10:21 2020
+Project   :  C:\workspace\k-cema\hw-test\csm\csm_pcb_zero_fpga_clk_out_test_utility
+Component :  OSC_C0
+Family    :  IGLOO2
+
+
+HDL source files for all Synthesis and Simulation tools:
+    C:/workspace/k-cema/hw-test/csm/csm_pcb_zero_fpga_clk_out_test_utility/component/work/OSC_C0/OSC_C0.vhd
+    C:/workspace/k-cema/hw-test/csm/csm_pcb_zero_fpga_clk_out_test_utility/component/work/OSC_C0/OSC_C0_0/OSC_C0_OSC_C0_0_OSC.vhd
+
+HDL source files for Synopsys SynplifyPro Synthesis tool:
+    C:/workspace/k-cema/hw-test/csm/csm_pcb_zero_fpga_clk_out_test_utility/component/Actel/SgCore/OSC/2.0.101/osc_comps.vhd
+
+HDL source files for Mentor Precision Synthesis tool:
+    C:/workspace/k-cema/hw-test/csm/csm_pcb_zero_fpga_clk_out_test_utility/component/Actel/SgCore/OSC/2.0.101/osc_comps_pre.vhd
+

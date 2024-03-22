@@ -1,0 +1,917 @@
+===============================================================================
+KT-956-0234-00 K-CEMA CSM Platform Test Scripts
+
+This archive contains CSM-side K-CEMA test scripts for CSM PCB and module 
+testing.
+
+===============================================================================
+
+Version 2.0.10
+
+Reason for release: Added BIT and Read RTC commands to the tamper module.
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- tamper.py - added BIT and Read RTC commands.  The BIT command provides a
+              reliable method for checking the tamper sensors on a fully
+              assembled CSM or NEO unit.
+
+===============================================================================
+
+Version 2.0.9
+
+Reason for release: Fixed bug in expansion slot power disable script.
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- exp_power_disable.py - fixed indexing bug when processing the command line
+                         arguments.
+
+===============================================================================
+
+Version 2.0.8
+
+Reason for release: Add support for Manpack Motherboard KBAN variant.
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- hardware_unit_config.py - added support for Manpack Motherboard KBAN variant.
+
+- serial_message_handler.py - added time.sleep() when to the tx queue thread
+                              to improve threading performance.
+
+===============================================================================
+
+Version 2.0.7
+
+Reason for release: Support auto-running generate_run_file.py at boot
+
+- generate_run_file.py - provide option to generate only csm_app run file and
+                         support running the script at boot-time.
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+See http://jira.kirintec.local/browse/KCEMA-1392
+
+===============================================================================
+
+Version 2.0.6
+
+Reason for release: Minor enhancements for CSM production test.
+
+- ext_rf_mute.py - expanded command line options to allow the master(control/
+                   slave(NTM) RF mute signals to be set individually and to
+                   support direction and input register bits introduced for NEO.
+
+- gbe_switch.py - increased robustness checking and retries on get port
+                  statistics method, ensures that any spurious characters printed
+                  by Linux to stdout/stderr don't affect the returned results.
+
+- tcxo_adjust.py - improved algorithm for reading 2x consecutive TCXO count
+                   register values.
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- cts_csm_quick_test.py - new test script for quickly testing an Integrated CTS
+                          installed in a CSM.
+
+- cts_firmware_update.py - new utility script to update the Integrated CTS
+                           firmware via serial UART using the CSM SoM.
+
+- cts_serial_msg_intf.py - new wrapper module for the Integrated CTS binary
+                           serial message interface.
+
+- exp_power_disable.py - new utility module for driving the Expansion slot power
+                         disable signals.
+
+- keypad.py - fixes STM32 firmware button press issue.
+
+- keypad_button_monitor.py - fixes STM32 firmware button press issue.
+
+- serial_message_handler.py - added support for streaming serial commands
+                              to/from a TCP port for the Integrated CTS Ethernet
+                              interface.
+
+- serial_message_test.py - fixes STM32 firmware button press issue.
+
+===============================================================================
+
+Version 2.0.5
+
+Reason for release: GbE Switch bug fix and set LEDs full brightness in keypad
+                    driver
+
+-------------------------------------------------------------------------------
+
+gbe_switch.py - added missing DevMem import.
+
+get_manpack_ntm_ip.py - added 1-sec delay after sending password before
+                        looking for processing response.
+
+keypad.py - added command to set LEDs to full brightness before setting the
+            specified LED pattern.
+
+===============================================================================
+
+Version 2.0.4
+
+Reason for release: Added scripts for interfacing and testing the Integrated CTS.
+                    Fixed issue introduced by STM32 firmware v1.1.5 (KT-956-0222-00)
+                    which does not send keypad button press messages if it hasn't
+                    been sent a Ping message by the SoM for 6-seconds.
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- cts_csm_quick_test.py - new test script for quickly testing an Integrated CTS
+                          installed in a CSM.
+
+- cts_firmware_update.py - new utility script to update the Integrated CTS
+                           firmware via serial UART using the CSM SoM.
+
+- cts_serial_msg_intf.py - new wrapper module for the Integrated CTS binary
+                           serial message interface.
+
+- exp_power_disable.py - new utility module for driving the Expansion slot power
+                         disable signals.
+
+- keypad.py - fixes STM32 firmware button press issue.
+
+- keypad_button_monitor.py - fixes STM32 firmware button press issue.
+
+- serial_message_handler.py - added support for streaming serial commands
+                              to/from a TCP port for the Integrated CTS Ethernet
+                              interface.
+
+- serial_message_test.py - fixes STM32 firmware button press issue.
+
+===============================================================================
+
+Version 2.0.3
+
+Reason for release: fixed hardware_unit_config.py refresh (-r) command so that
+                    it only refreshes config if the assembly part number matches
+                    that which was previously programmed into the device.
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- hardware_unit_config.py - see above
+
+===============================================================================
+
+Version 2.0.2
+
+Reason for release: fixed run script generator - including LAUNCH_ROOT
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- generate_run_file.py - see above
+
+===============================================================================
+
+Version 2.0.1
+
+Reason for release: fixed bug in generate_run_file which caused MAC addresses
+                    to be muddled up depending on the order in which they were
+                    returned from the AB GbE switch
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- generate_run_file.py - see above
+
+===============================================================================
+
+Version 2.0.0
+
+Reason for release: run script generator supporting MORA, SAPIENT, KFMT bridges
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- generate_run_file.py - supporting MORA, SAPIENT, KFMT bridges
+
+===============================================================================
+
+Version: 1.9.9
+
+Reason for release: Updated run file generation script to support manpack
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- generate_run_file.py - supporting manpack (detecting KT-000-0180-* PCB type)
+
+===============================================================================
+
+Version: 1.9.8
+
+Reason for release: Added/updated scripts to support manpack system test
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- eui48_ic.py - added new valid Microchip vendor IDs
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- ext_rf_mute.py - added mute direction control for manpack
+
+- hardware_unit_config.py - added manpack CSM and Neo LHM/KBAN modules
+
+- get_manpack_ntm_ip.py - added scrip to get NTM IP addresses via CSM serial
+                          ports in manpack
+
+===============================================================================
+
+Version: 1.9.7
+
+Reason for release: Added new LED drive and generate slots file scripts to
+                    support CSM firmware update using FWUP.
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- generate_slots_file.py - generates a slots.sh file which includes an EMA to
+                           rack slot map.
+
+- led.py - utility file for setting front panel LED states during the FWUP
+           update procedure.
+
+===============================================================================
+
+Version: 1.9.6
+
+Reason for release: Zeroise micro serial interface and GbE switch interface
+update.
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- gbe_switch.py - added command line option to perform a hardware reset of
+                  the GbE Switch using SoM GPIO.
+
+- zm_serial_msg_intf.py - added Set All LEDs method, sets all LEDs using a
+                          single serial command, general tidy up.
+
+===============================================================================
+
+Version: 1.9.5
+
+Reason for release: Added LTC2991 driver.
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- ltc2991_adc.py - new script, driver for the the LTC2991 I2C bus ADC.
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- bit_report.py - added LTC2991 ADC readings to BIT report.
+
+- gbe_switch.py - added command to set the Slave Interface mode.
+
+===============================================================================
+
+Version: 1.9.4
+
+Reason for release: Added keypad test scripts and Set LED Brightness command
+                    to Zeroise Micro Serial Interface.
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- keypad_button_monitor.py - new script for testing keypad button status.
+
+- keypad_led_visual_check.py - new script for testing keypad LED functionality.
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- serial_message_handler - added short delay in tx thread to improve serial
+  message handler responsiveness.
+
+- zm_serial_msg_intf.py - added method for sending Set LED Brightness command
+  and added Enum class for Button State.
+
+===============================================================================
+
+Version: 1.9.3
+
+Reason for release: GbeSwitch build LWIP AUTOIP address update and keypad
+                    set buzzer improvement.
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- N/A
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- gbe_switch.py - the build_lwip_autoip_address() method was implementing a
+  a crude approximation of the LWIP AUTOIP pseudo-random IP adress algorithm
+  for a single address, updated to accurately reflect the LWIP algorithm.
+
+- keypad.py - added a 1.0 s delay after sending the set buzzer command before
+  closing the serial message handler to make sure the command is sent, pySerial
+  is slow!
+
+- generate_tgz.py - now ignores __pycache__ folders when building the archive.
+
+===============================================================================
+
+Version: 1.9.2
+
+Reason for release: Update generate_run_file.py to use new symlink to Ethernet
+                    Switch serial port if it exists.
+                    Update generate_run_file.py to launch CSM app from
+                    active partition where dual-boot partitions exist.
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- See above
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- See above, also fixed issue in gbe_switch.py to ignore badly formatted IP
+  addresses when searching for the Active Backplane IP address.
+
+===============================================================================
+
+Version: 1.9.1
+
+Reason for release: Improved robustness of tamper sensor arm/inactive
+                    functionality.  New script for reporting BIT sensors.
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- bit_report.py - utility script reads and reports all BIT sensor values.
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- tamper.py - added read back check and retry for setting tamper registers
+  when setting the tamper sensors armed and inactive.
+
+===============================================================================
+
+Version: 1.9.0
+
+Reason for release: Updates to support CSM Production Test GUI.
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- generate_test_tgz.py - new utility module to create a platform test script
+  tgz archive for distribution.
+
+- keypad.py - new module for automated testing of the unit keypad.
+
+- serial_echo.py - new module for echoing data received on a serial port.
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- built_in_test.py - added additional ADC channels present on Rev D.x board
+  onwards, +1V0_ETH and +2V5_ETH
+
+- gbe_switch.py - fixed bug in uport range testing in get_port_statistics()
+  method of GbeSwitch class.
+
+- hardware_unit_config.py - added extra command line parameters to support
+  automated test including extra option set unit config words to default
+  values with tamper disabled.
+
+- gps_nmea_decode.py - added command line parameters to support automated test.
+
+- serial_message_handler.py - reduced serial timeout to improve responsiveness.
+
+===============================================================================
+
+Version: 1.8.0
+
+Reason for release: Re-factored GbE Switch driver and updated drivers to
+support automated CSM board and unit production test.
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- ad7415_temp_sensor.py - new module for reading the CSM AD7415 ambient
+  temperature sensor.
+
+- pb_ctrl_irq.py - new module for testing the Push-Button Controller interrupt
+  signal to the SoM.
+
+- tcp_serial_direct.py - new module from Serial library that can be used to
+  re-direct a serial port to a TCP port.
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- eui48.py - added extra Microchip Organizationally-Unique-Identifier.
+
+- gbe_switch.py - re-factored GbE Switch module in line with Active Backplane
+  module.  Removed ab_gbe_switch.py module.  The gbe_switch module now has a
+  common set of base class functionality and Telnet and Serial concrete
+  classes.
+
+- generate_run_file.py - updated to make use of refactored gbe_switch module.
+  Add command line parameter to specify CSM GbE Switch serial port in case this
+  changes.
+
+- tcxo_adjust.py - minor updates to support CSM board and unit automated test.
+
+- uart_test.py - minor updates to support CSM board and unit automated test.
+
+===============================================================================
+
+Version: 1.7.0
+
+Reason for release: Updated serial message handler and added new module for
+interfacing to the zeroise microcontroller.
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- serial_message_hanlder.py - Updated for consistency with module used on other
+  hardware test projects.  This module now only handles the generic aspects of
+  the serial protocol specified in KT-957-0413-00.
+
+- zm_serial_msg_inf.py - New module added to implement zeroise microcontroller
+  specific commands from the KT-957-0413-00 serial protocol.
+
+- serial_message_test.py - Updated to make use of new serial message handler
+  module structure.
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+===============================================================================
+
+Version: 1.6.5
+
+Reason for release: Added mission locations to generated run file
+
+===============================================================================
+
+Version: 1.6.4
+
+Reason for release: Updated run file generation to remove sleep added before poweroff
+in previous release
+
+===============================================================================
+
+Version: 1.6.3
+
+Reason for release: Updated run file generation to include poweroff command
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- Generated run file includes power off code block as described here:
+  http://jira.kirintec.local/browse/KCEMA-729
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+===============================================================================
+
+Version: 1.6.2
+
+Reason for release: Added script for controlling the Power Off Override signal
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- power_off_ovr.py New utility module for controlling the Power off Override
+  signal.
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+===============================================================================
+
+Version: 1.6.1
+
+Reason for release: Update to tamper module and default BootBlocker Config Data
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- tamper.py changed the arm/set inactive methods to set the M41ST87W pull-up
+  resistors to 1 MOhm rather than 10 MOhm
+
+- hardware_unit_config.py changed the default config data to disable the light
+  sensor
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+===============================================================================
+
+Version: 1.6.0
+
+Reason for release: Update to tamper module
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- tamper.py module reorganised so that it can be called with command line
+  options, this is intended for use by the System Maintenance Tool when updating
+  software.  Added method to reset the tamper channels to the inactive stats,
+  this mimics the BootBlocker tamper_reset_inactive() function.
+  Update to test_tamper.py needed to support this change.
+
+- i2c.py updated for consistency with companion script in EMA Platform Tests,
+  minor update to tcxo_adjust.py needed to support this change.
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 1.5.5
+
+Reason for release: Added purge file module
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- Added purge file module, purge_file.py.  Added for erasing files during the
+  software update process
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 1.5.4
+
+Reason for release: Tidied up the generate_run_file.py script so it can be
+                    deployed with the V1.0.0 K-CEMA software suite.
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- Timeout parameter added to GbE Switch modules ping_ip method, this is used
+  to speed up searching for IP addresses.
+
+- Active Backplane IP address auto-detection added to enable
+  generate_run_file.py to be run without pre-existing knowledge of IP address.
+  Auto-detection relies on finding zeroconf addresses that use the LWIP
+  AUTOIP algorithm, the Active Backplane is the only module that will have an
+  IP address generated using this algorithm.
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- Fixed bug in GbE Switch modules ping_ip method.  Invalid IP addresses were
+  not being caught, i.e. a ping to 169.254.0.256 would erroneously return TRUE
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 1.5.3
+
+Reason for release: Added additional CRC library code to PyCRC that deals with
+                    byte arrays.  Modified hardware and unit config script to
+                    use this new library
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 1.5.2
+
+Reason for release: Modified the default config data in the hardware and unit
+                    config script to set the Perform POST flag by default
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 1.5.1
+
+Reason for release: Tidy up of hardware_unit_config.py for commonality with
+                    equivalent script in ema_platform_tests module
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 1.5.0
+
+Reason for release: Modified generate run file script to use Active Backplane
+                    GbE switch module for retrieving MAC addresses
+                    Update to unit config module and JSON definitions to
+                    support BootBlocker version no and config data
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- generate_run_file.py - modified to use AbGbeSwitch class to retrieve the MAC
+  addresses connected to the Active Backplane GbE switch.  Also included retry
+  loop for robustness
+
+- hw_config_format_128.json - added BootBlocker Version No and Config Data
+  fields to JSON data structure, version no. remains at 1
+
+- hardware_unit_config_info.py - updated set/get functions to handle the
+  changes to hw_config_format_128.json, i.e. set and get BootBlocker info.
+  Get info function updated to return dictionary of values retrieved from the
+  config info devices, dictionary keys are the same as the JSON data "name"
+  fields.
+  Added command line arguments to the module "-p" to print config info and
+  "-r" which reads config info then writes back assembly type, serial no,
+  rev no and build/batch no returning all other data to default values.  This
+  is primarily included to facilitate adding default BootBlocker config data
+  to the unit info EEPROM.
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 1.4.0
+
+Reason for release: Reformatted test pass/fail output for clarity.  
+					Renamed I2C.py to i2c.py.  
+					Added several new modules for additional functionality
+					Added __repr__ overrides to several classes
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- i2c.py - added write_block() method, allows an array of data values to be 
+  written to an I2C device
+- test_kt-000-0140-00.py - updated GPS 1PPS and TCXO test to use the new 
+  tcxo_adjust.py module to trim the 10 MHz TCXO, also tests GPS 1PPS signal.
+  Reformatted the pass/fail output for clarity.					
+- Added telnetlib.py Telnet library module	
+- Added ab_gbe_switch.py module, mirrors gbe_switch.py allowing Telnet access 
+  to Active Backplane switch serial management interface.
+- Added tcxo_adjust.py module for testing the GPS 1PPS and trimming the 10 MHz 
+  TCXO
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 1.3.0
+
+Reason for release: Added module for accessing the GbE Switch information and
+update to TMP442 deriver
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- Added module for accessing the GbE Switch, reads device temperature from 
+  internal registers.  Allows connected MAC addresses to be read.  Search 
+  method for attached devices with LWIP AUTOIP addresses.  
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- Updated TMP442 device initialisation to adjust diode ideality factor used when
+  reading remote diode temperature
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 1.2.0
+
+Reason for release: Update to TMP442 tempearture test limits
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- Reduced minimum pass/fail temperature limits for the TMP442 temperature 
+  sensor.  The KT-000-014-00 runs ~10 deg C cooler installed in the enclosure 
+  than bare board on the bench.
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 1.1.0
+
+Reason for release: Updated for KT-000-0140-00 CSM Motherboard production test
+procedure Rev B.1
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- Automated test script for KT-000-0140-00 testing
+- Automated test script for KT-950-0351-00 testing
+- General script update to support above scripts
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+
+===============================================================================
+
+Version: 1.0.0
+
+Reason for release: Initial release
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- Initial release
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================

@@ -1,0 +1,342 @@
+===============================================================================
+KT-956-0229-00 K-CEMA EMA PC Test Scripts
+
+This archive contains PC-side K-CEMA test scripts for EMA PCB and module 
+testing.
+
+===============================================================================
+
+Version: 1.1.0
+
+Reason for release: added --no_ssd option
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- See above
+- Printing test version
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+Version: 1.0.4
+
+Reason for release: applied longer command timeouts to Rx and PA cal commands
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- See above
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- See above
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 1.0.3
+
+Reason for release: applied longer command timeout (60 seconds) on NVMe SSD test
+to allow headroom for SSD formatting (typically takes <30 seconds for format
+and test).
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- See above
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- See above
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+
+===============================================================================
+
+Version: 1.0.2
+
+Reason for release: corrected syntax error in 1.0.1 update
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- See above
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- See above
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 1.0.1
+
+Reason for release: killall command killing KCemaEMAApp and ema_app.bin
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- See above
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- See above
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 1.0.0
+
+Reason for release: Include NVMe test in EMA module test
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- NVMe SSD test included in EMA module test
+- Supporting new root password with fallback to "root" as password
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- See above
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 007
+
+Reason for release: Updated to ignore non-UTF-8 decode errors when waiting for
+                    EMA boot
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- See above
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 006
+
+Reason for release: Updated to support automated testing of MB receiver
+					at EMA module level test 
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- ema_module_test.py: added MB receiver test capability
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 005
+
+Reason for release: Updated to to support automated testing of KT-000-0143-00
+					EMA Power Conditioning Module PCB
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- hardware_config_serial.py: new module implements serial ASCII commands for 
+  setting and reading hardware configuration information, the ASCII command 
+  set is common to all K-CEMA NUCLEO-L432KC test interafaces
+  
+- test.py: utility class for testing measurement readings
+ 
+- pcm_ntm_test_intf_board.py: added support for the following ASCII serial
+  commands:
+    - Power Fail Asserted
+    - Get Analogue Outputs
+    - Set digitial potentiometer RDAC
+    - Write digitial potentiometer RDAC to 50TP NV memory
+  
+ - pcm_pcb_prod_test.py: added automated tests for the following functions:
+     - Power Fail signal
+     - DC-DC output voltage adjustment
+	Test output reformattted, test output is logged to text file.   
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 004
+
+Reason for release: Corrected EMA Test Interface Board port selection
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- http://bitbucket.kirintec.local/projects/KCEM/repos/hw-test/commits/1d961babf39fec101428d06ecd23633335ad81bf
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 003
+
+Reason for release: Corrected EMA Test Interface Board port selection
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- http://bitbucket.kirintec.local/projects/KCEM/repos/hw-test/commits/1d961babf39fec101428d06ecd23633335ad81bf
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 002
+
+Reason for release: Initial release of EMA test
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- EMA level test
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 1.0.0
+
+Reason for release: Initial release
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- Initial release
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================

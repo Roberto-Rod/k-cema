@@ -1,0 +1,12 @@
+env default -a
+setenv autoload 'no'
+setenv sdbootdev 1
+setenv fpga_img 'system.bin'
+setenv fpga_size '0x3dbafc'
+setenv fpga_load 'fpga load 0 ${loadaddr} ${fpga_size}'
+setenv fpga_tftp 'tftpboot ${loadaddr} system.bin'
+setenv fpga_mmc_boot 'run cp_fpga2ram; run fpga_load'
+setenv cp_fpga2ram 'mmcinfo && fatload mmc ${sdbootdev} ${loadaddr} ${fpga_img}'
+setenv default_bootcmd 'run uenvboot; mmc dev 1; run fpga_mmc_boot; run cp_kernel2ram && bootm ${netstart}'
+saveenv
+

@@ -1,0 +1,10 @@
+cd /
+umount /dev/mmcblk0p2
+mount /dev/mmcblk0p2 /tmp
+DATETIME=$(date +"%Y-%m-%d_%H-%M-%S")
+BOARD=$(dd if=/sys/bus/i2c/devices/0-0051/eeprom bs=1 count=14 2>/dev/null)
+SERIAL=$(dd if=/sys/bus/i2c/devices/0-0051/eeprom bs=1 count=6 skip=32 2>/dev/null)
+LOGFILE="${DATETIME}_${BOARD}_${SERIAL}_test.log"
+CALFILE="${DATETIME}_${BOARD}_${SERIAL}_dds_cal.csv"
+tftp -p 169.254.94.83 -l /tmp/log/test.log -r ${LOGFILE}
+tftp -p 169.254.94.83 -l /tmp/calibration/dds_cal.csv -r ${CALFILE}

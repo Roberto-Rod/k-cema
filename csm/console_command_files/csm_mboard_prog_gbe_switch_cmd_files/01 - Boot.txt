@@ -1,0 +1,4 @@
+run fpga_mmc_boot
+run cp_kernel2ram
+mw.l 0x4000A000 0xD
+bootm

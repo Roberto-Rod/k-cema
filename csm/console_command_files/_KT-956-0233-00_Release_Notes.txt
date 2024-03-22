@@ -1,0 +1,89 @@
+===============================================================================
+KT-956-0233-00 K-CEMA CSM Motherboard Bring Up Commands
+
+This archive contains PC-side K-CEMA commands for CSM PCB and module testing.
+The files are intended to be dragged into a serial terminal emulator window
+using a 1-second per line delay.
+
+Command files are provided for 2x purposes:
+1 - System on Module bring up
+2 - GbE Switch firmware programming
+
+===============================================================================
+
+Version: 1.2.0
+
+Reason for release: Minor modification to SoM bring up set environment variable
+command file
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- "09 - Set Environment Variables.txt", split reset at end of command file out
+  to seperate file "10 - Reset.txt"
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 1.1.0
+
+Reason for release: Added production test command files folder and minor bug
+fixes
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- Added production test file for resetting anti-tamper sensors
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- Added some extra blank lines to the following files to aid flow of commands:
+	/csm_mboard_prog_gbe_switch_cmd_files/03 - Reboot.txt
+	/csm_mboard_som_bring_up_cmd_files/03 - Fdisk eMMC Partition Tables.txt
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 1.0.0
+
+Reason for release: Initial release
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- Initial release
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================

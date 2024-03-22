@@ -1,0 +1,603 @@
+===============================================================================
+KT-956-0235-00 K-CEMA CSM PC Test Scripts
+
+This archive contains PC-side K-CEMA test scripts for CSM PCB and module 
+testing.
+
+===============================================================================
+
+Version: 3.3.1
+
+Reason for release: K-CEMA Vehicle & Manpack CSM Production Test GUI v2.3.1
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- csm_plat_test_intf.py - added command to set External 1PPS signal direction.
+
+- csm_prod_test.py - enabled Vehicle CSM RCU 1PPS test (requires SoM FPGA
+                     v1.5.3-1), added command to set the Vehicle CSM Slave and
+                     Manpack Master Slave 1PPS signals as outputs.
+
+===============================================================================
+
+Version: 3.3.0
+
+Reason for release: K-CEMA Vehicle & Manpack CSM Production Test GUI v2.3.0
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- csm_plat_test_intf.py - added command to run tamper sensor BIT and return
+                          the result.
+
+- csm_prod_test.py - removed redundant CSAC serial port parameter for test
+                     classes and replaced with Exp1 and Exp2 serial port
+                     parameters; modified Unit Tamper Test case to use
+                     BIT function in CSM Platform Test Scripts v2.0.10;
+                     fixed bug in Expansion Slot test cases for GbE
+                     Connection Tests and updated to test Exp1 and Exp2
+                     serial ports; merged 2x Manpack Board Fan test case
+                     methods into a single method.
+
+- csm_prod_test_gui.py - disable the vehicle motherboard PoE PSE test by
+                         default; removed redundant CSAC, Debug and GNSS2
+                         serial port aliases and added Exp1 and Exp2 aliases
+                         to default configuration; fixed call to Expansion
+                         Slot Test cases to have correct data for GbE
+                         Connection tests.
+
+===============================================================================
+
+Version: 3.2.1
+
+Reason for release: K-CEMA Vehicle & Manpack CSM Production Test GUI v2.2.1
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- csm_prod_test.py - fixed typo in Light Sensor Test instruction message.
+
+- csm_prod_test_gui.py - made the test status scrolled text box read-only and
+                         fixed a bug when executing Vehicle GbE Connection
+                         Tests.
+
+===============================================================================
+
+Version: 3.2.0
+
+Reason for release: K-CEMA Vehicle & Manpack CSM Production Test GUI v2.2.0
+                    added support for Manpack KBAN Motherboard variant.
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- csm_plat_test_intf.py - added support for Manpack KBAN Motherboard variant.
+
+- csm_prod_test.py - added support for Manpack KBAN Motherboard variant.
+                     Updates to board-level case switch and light sensor test
+                     cases and for setting board config information.
+
+- csm_prod_test_gui.py - added support for Manpack KBAN Motherboard variant.
+
+- csm_test_jig_intf.py - increased hard power-off time from 11 to 12 seconds.
+
+===============================================================================
+
+Version: 3.1.0
+
+Reason for release: K-CEMA Vehicle & Manpack CSM Production Test GUI v2.1.0
+                    added RF Mute and Board Fan test cases for the Manpack
+                    Motherboard.
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- The following virtual environment libraries have been updated to the latest
+  versions:
+  - async_timeout
+  - bcrypt
+  - cachetools
+  - cryptography
+  - fabric
+  - future
+  - invoke
+  - paramiko
+  - py2exe
+  - setuptools
+  - zeroconf
+
+- csm_plat_test_intf.py - added/updated RF Mute commands to allow the setting
+  the Master(Control) and Slave(NTM) RF Mute signals individually.  Added
+  command to set the Control Port RF Mute direction.
+  Added specific timeout for the TCXO adjust test command as command duration
+  may exceed the default SSH command timeout of 15-seconds.
+
+- csm_prod_test.py - increased test limits on the Buzzer Test as we're too
+  tight, now +/-5 %.
+  Added Manpack RF Mute and Board Fan test cases.
+
+- csm_prod_test_gui.py/iss - updated for K-CEMA Vehicle & Manpack CSM Production
+  Test GUI v2.1.0.
+
+- csm_test_jig_intf.py - added support for new Manpack CSM Test Jig Utility
+  commands to initialise NTM fan controllers, get NTM fan speeds and get/set
+  NTM fan PWM duty-cycle.
+
+===============================================================================
+
+Version: 3.0.0
+
+Reason for release: K-CEMA Vehicle CSM Production Test GUI v2.0.0 supporting
+                    KT-000-0180-00 Manpack CSM Motherboard testing.
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- csm_plat_test_intf.py - update to support changes to SSH class; fixed bugs in
+  get_gbe_sw_port_link_state() and get_gbe_sw_port_statistics() methods
+  introduced by changes in the csm_platform_tests; added support for setting
+  and getting the KT-000-0180-00 config info; improved reset handling in the
+  remove_test_scripts() method.
+
+- csm_prod_test.py - significant update to add support for KT-000-0180-00
+  testing.  Test cases and functionality common to KT-000-0140-00 and
+  KT-000-0180-00 testing have been moved to a base class, CommonCsmProdTest;
+  KT-000-0140-00 specific test cases and functionality remain in the
+  CsmProdTest class, the new class MpCsmProdTest implements KT-000-0180-00
+  specific test cases and functionality; the CsmProdTestInfo class used to
+  specify a test to perform has been re-factored in a similar manner.
+
+- csm_prod_test_gui.py - significant update to add support for KT-000-0180-00
+  testing, the KT-000-0180-00 test can be run as a whole or in 2-parts as for
+  the KT-000-0140-00.
+
+- csm_program_devices.py - modified program_gbe_sw_spi_flash_from_som() and
+  program_som() methods to support different test jig interfaces for the
+  KT-000-0197-00 and KT-000-0203-00 test jigs.
+
+- csm_test_jig_intf.py - functionality common to the KT-000-0197-00 and
+  KT-000-0203-00 test jigs has been moved into a base class,
+  CommonCsmTestJigInterface test jig specific functionality is implemented
+  in separate classes CsmTestJigInterface and MpTestJigInterface; added
+  utility classes to support new MpTestJigInterface class.
+
+- csm_zer_micro_test_intf.py - functionality common to the KT-000-0140-00 and
+  KT-000-0180-00 zeroise microcontroller utilities has been moved into a,
+  base class, CommonZeroiseMircoTestInterface board specific functionality
+  is implemented in separate CsmZeroiseMircoTestInterface and
+  MpZeroiseMircoTestInterface classes; added utility classes to support new
+  MpZeroiseMircoTestInterface class.
+
+- ptp_phy_test.py - added ethtool command to turn off Linux driver
+  auto-negotiation for the PTP PHY, needed for the KT-000-0180-00 which is
+  physically connected to the GbE Switch by 100BASE-FX.
+
+- rpi4_iperf3.py - updated to support changes to the SSH class.
+
+- ssh.py - added support for SCP file transfers; added reconnection and
+  command retries to improve the reliability of SSH transactions.
+
+===============================================================================
+
+Version: 2.2.3
+
+Reason for release: Added temperature logging functionality.
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- temperature_logging.py - new utility script for logging CSM temperatures to
+  a CSV file.
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- csm_plat_test_intf.py - added commands to read SoM, GbE Switch and LTC2991
+  ADC temperatures.
+
+- csm_zero_micro_test_intf.py - added commands to read Battery, PoE PSE and
+  STM32 temperatures.
+
+===============================================================================
+
+Version: 2.2.2
+
+Reason for release: K-CEMA Vehicle CSM Production Test GUI v1.1.3.
+                    Fixed bug whereby overall test pass/fail variable could be
+                    reset to True after copying test scripts to the SoM.
+                    Modified power on/off voltage test limits.
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- csm_prod_test_gui.py - Fixed bug whereby overall test pass/fail variable
+  could be reset to True after copying test scripts to the SoM.
+
+- csm_prot_test.py - widened test limits for Remote Power Off, CSM Master
+  Power Off and CSM Slave Power Off signals when measuring asserted voltage
+  from [475:525] mv to [450:550] mV to allow for measurement error and
+  resistance in test cabling.
+
+===============================================================================
+
+Version: 2.2.1
+
+Reason for release: K-CEMA Vehicle CSM Production Test GUI v1.1.2.
+                    Fixed bug in CsmProdTest _ping() method.
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- csm_prod_test.py - fixed bug which was forcing hostname pings to use IPV4.
+  This was causing the QSGMII test to fail on the RPi4 ping as it only supports
+  IPv6.
+
+===============================================================================
+
+Version: 2.2.0
+
+Reason for release: Add keypad operational buzzer test.
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- keypad_operational_buzzer_test - performs operational test of the unit buzzer
+  using the CSM Test Interface Board
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- uart_test.py - added short sleep to tx thread to improve responsiveness of the
+  serial handler class.
+
+===============================================================================
+
+Version: 2.1.1
+
+Reason for release: CSM Production Test GUI - V1.1.1 - Unit-level test updates
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- csm_prod_test.py - fixed bug in unit_tamper_test(), wasn't disarming the
+  tamper sensors and improved test case robustness by setting and testing
+  sequence tamper sensors inactive->armed->inactive.
+
+===============================================================================
+
+Version: 2.1.0
+
+Reason for release: CSM Production Test GUI - V1.1.0 - Unit-level test updates
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- csm_plat_test_intf.py - modified arm_tamper_channels() method to set the
+  tamper sensors to inactive (mimics BootBlocker state) rather than disabled.
+  This stops the BootBlocker from thinking the battery has died and stopping
+  boot in the bricked "battery dead" state.
+  Added "rm -d" to the list of commands in remove_test_scripts() method, to
+  ensure an empty "test" directory is removed.
+
+- Updates following integration testing on CSM Unit.
+  Added unit_set_config_info() method, uses zeroconf to look for a "single"
+  connected CSM unit, this is then programmed with the unit Assembly Serial No
+  so that subsequent connections to the unit can use the "csm-xxxxxx.local"
+  hostname with the serial no of the unit under test.
+  Fixed test reporting logic checks in unit_uart_test(), rf_mute_test() and
+  power_off_override_test() methods.
+  Increased duration to wait for GPS lock from 30-seconds to 3-minutes in the
+  gps_lock_test() method.
+  Added unit-level test for the Power Button, unit_pb_controller_irq_test().
+  Added method to find connected CSMs using zeroconf, find_csms().
+  Added test sequences for testing Motherboard in two parts.
+
+- Modified default JSON data to add unit-level unit_set_config_info and
+  unit_pb_controller_irq_test test cases and added test cases to the test
+  thread.
+  Added ability to run Motherboard test in 2x parts.
+
+- ssh.py - added retries when creating initial connection.
+
+===============================================================================
+
+Version: 2.0.1
+
+Reason for release: CSM Production Test GUI - V1.0.1
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- csm_plat_test_intf.py - added a ping of the hostname before creating the SSH
+  in the instance in open_ssh_connection().  This has been found to make the
+  process of opening a new connection more reliable, the ping appears to help
+  the host PC resolve the IP address of the remote host.
+
+- csm_prod_test.py - increased time allowed for GbE Switch ports to connect
+  after being enabled in gbe_sw_connection_test() from 5.0 to 10.0 seconds.
+  Added 5.0 second delay after finding the Linux prompt in expansion_slot_test()
+  before starting the test.
+
+- csm_prod_test_gui.iss - update for CSM Production Test GUI V1.0.1
+
+- csm_prod_test_gui.py - update for CSM Production Test GUI V1.0.1
+
+- csm_program_devices.py - increased time allowed for boot.bin flashcp command
+  to complete from 15.0 to 30.0 seconds.
+
+===============================================================================
+
+Version: 2.0.0
+
+Reason for release: Added CSM Production Test GUI - V1.0.0.
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- Added .venv folder containing Python virtual environment.
+
+- csm_plat_test_intf.py - Provides an interface for running test scripts and
+  executing commands on the KT-000-0140-00 over an SSH connection.
+
+- csm_prod_test.py - CSM automated production test-cases.
+
+- csm_prod_test_gui.py - CSM Production Test TKinter GUI application.
+
+- csm_prod_test_gui_setup.py - py2exe for the production test GUI.
+
+- csm_prod_test_gui.iss - Inno Setup Compiler project file for the production
+  test GUI.
+
+- csm_program_devices.py - Utility functions for programming the Zeroise STM32
+  microcontroller using a Segger J-Link, GbE Switch using an ASIX PRESTO and
+  serial command line with SD card, Zeroise FPGA using a FlashPro and the
+  Trenz SoM using serial command line and an SD card.
+
+- csm_test_jig_intf.py - Provides an interface to the KT-956-0358-00 CSM Test
+  Jig Software ASCII serial interface.
+
+- rpi4_iperf3.py - Utility functions for running an iPerf3 server over SSH on a
+  Raspberry Pi 4.
+
+- ssh.py - Wrapper classes for an SSH client using the fabric library.
+
+- tl_sg3428.py - Provides a wrapper for the TP-Link TL-SG3428 Ethernet switch
+  serial console.
+
+- uart_test.py - Provides loopback UART test functionality for unit-level test.
+
+- win_iperf3.py - Utility functions for running an iPerf3 client test on a local
+  Windows host.
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- anti_tamper_prod_test.py - Minor update to test pass/fail reporting.
+
+- csm_zero_micro_test_intf.py - Major update in line with KT-956-0230-00 V3.0.0
+  onwards for KT-000-0140-00 Rev D.x onwards and automated test with the
+  KT-000-0197-00 test jig.  Added functionality for Keypad Loopback Test,
+  reading BIT ADC data and reading PoE PSE status.
+
+- keypad_buzzer_test.py - Added automatic buzzer test using the KT-000-0197-00
+  test jig.
+
+- ptp_phy_test.py - Added parametrisation for CSM login details.
+
+- som_eia422_intf.py - Added extra step to ensure the serial terminal is logged
+  in at the command line before running the test.
+
+- zeroise_fpga_test.py - Added extra debug reporting.
+
+===============================================================================
+
+Version: 1.3.1
+
+Reason for release: Minor enhancements to test script usability
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- keypad_buzzer_test.py - modfied "y/n" prompts to validate correct user input
+- ptp_phy_test.py - code tidy up: removed unused import; improved exception
+  handling; and tidied up long line
+- zeroise_fpga_test.py - added delays between some actions to improve test
+  reliability
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 1.3.0
+
+Reason for release: Enhancements to PTP PHY test
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- csm_mboard_prod_test.py - added prompt at start of test to confirm that the 
+  required COM ports are disconnected as the test will fail if they are 
+  connected, for example in a serial terminal emulator
+- anti_tamper_prod_test.py - renamed file "csm_mboard_anti_tamper_prod_test.py"
+- ptp_phy_test.py - modified test to confirm that the script is at a Linux
+  command line before running, increased number of ping retries 
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 1.2.0
+
+Reason for release: Update to fix issue with arming case switch tamper sensor.
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- csm_mboard_anti_tamper_prod_test.py - added step to read M41ST87W Flags 
+  register after disabling all the tamper sensors, this ensures that the 
+  case switch sensor arms correrctly.
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 1.1.0
+
+Reason for release: Updated to support KT-000-0140-00 CSM Motherboard 
+Production Test Procedure Rev C.1.  
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- csm_mboard_anti_tamper_prod_test.py - automates anti-tamper device testing
+- ptp_phy_test.py - automates PTP PHY test, requires logged in Central Services 
+  Master serial Linux command line
+- som_eia422_intf_test.py - automates SoM EIA-422 interface test, requires 
+  logged in Central Services Master serial Linux command line
+- zeroise_fpga_test.py - automates Zeroise FPGA test, requires KT-956-0236-00
+  K-CEMA CSM Zeroise FPGA Test Firmware to V1.1.0 onwards to be installed on
+  the Zeroise FPGA
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 1.0.1
+
+Reason for release: Minor update to fix typos
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- Initial release
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- Corrected script name error in csm_mboard_test.py
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 1.0.0
+
+Reason for release: Initial release
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- Initial release
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================

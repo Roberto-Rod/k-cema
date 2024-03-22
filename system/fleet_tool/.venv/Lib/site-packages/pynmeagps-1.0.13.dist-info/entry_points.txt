@@ -1,0 +1,3 @@
+[console_scripts]
+nmeadump = pynmeagpscli.nmeadump:main
+

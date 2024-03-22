@@ -1,0 +1,6 @@
+cd /
+umount /tmp
+umount /dev/mmcblk0p2
+mount /dev/mmcblk0p2 /tmp
+cd /tmp/test
+./test_kt-000-0134-00.py

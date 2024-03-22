@@ -1,0 +1,10 @@
+DESIGN=top_level
+DESDIR=C:\workspace\k-cema\hw-test\csm\csm_pcb_zero_fpga_clk_out_test_utility\designer\top_level
+TARGET_DIR=C:\workspace\k-cema\hw-test\csm\csm_pcb_zero_fpga_clk_out_test_utility\designer\top_level
+FAM=IGLOO2
+DIE=PA4MGL2500_N
+PACKAGE=fg484
+PINRPT_BY_NAME=1
+PINRPT_BY_NUMBER=1
+BANK_REPORT=1
+IOREG_REPORT=1

@@ -1,0 +1,11 @@
+KEY IDE_DES_TOOL "Ide"
+KEY IDE_DES_ADB_PATH "C:\workspace\k-cema\hw-test\csm\csm_pcb_zero_fpga_clk_out_test_utility\designer\impl1\top_level.adb"
+LIST SOURCE_FILES
+VALUE "C:\workspace\k-cema\hw-test\csm\csm_pcb_zero_fpga_clk_out_test_utility\constraint\io\user.pdc;pdc"
+VALUE "C:\workspace\k-cema\hw-test\csm\csm_pcb_zero_fpga_clk_out_test_utility\constraint\top_level_derived_constraints.sdc;sdc"
+ENDLIST
+LIST OPTIONAL_FILES
+VALUE "C:\workspace\k-cema\hw-test\csm\csm_pcb_zero_fpga_clk_out_test_utility\synthesis\top_level_vm.sdc;Skipped"
+ENDLIST
+LIST VCD_FILES
+ENDLIST

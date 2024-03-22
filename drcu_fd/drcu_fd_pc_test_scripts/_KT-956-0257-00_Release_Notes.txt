@@ -1,0 +1,139 @@
+===============================================================================
+KT-956-0257-00 K-CEMA DRCU and FD PC Test Scripts
+
+This archive contains PC-side K-CEMA test scripts for the Display RCU and
+Fill Device PCBs and unit testing.
+
+===============================================================================
+
+Version: 1.2.1
+
+Reason for release: DRCU and FD Production Test GUI v1.2.1
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- drcu_fd_prod_test.py - Added new FD test case for the STM32 VBAT monitor.
+                         Modified common enable_som() method to timeout rather
+                         than rely on a number of pings, the amount of time
+                         taken by the ping call can depend on how the ping fails.
+
+- drcu_fd_prod_test_gui.py - Added new FD test case for the STM32 VBAT monitor.
+
+- fd_micro_test_intf.py - Added serial command for reading the STM32 VBAT
+                          monitor voltage.
+
+===============================================================================
+
+Version: 1.2.0
+
+Reason for release: DRCU and FD Production Test GUI v1.2.0 update to support
+                    Fill Device Motherboard and Assembly level testing.
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- drcu_fd_prod_test.py - Added test cases for Fill Device board and unit test.
+
+- drcu_fd_prod_test_gui.py - Added support for Fill Device board and unit test.
+
+- drcu_fd_program_devices.py - Added function to update SoC software via SSH.
+
+- drcy_plat_test_intf.py - Added support for Fill Device board and unit test.
+
+- fd_micro_test_intf.py - New utility module to wrap up the ASCII serial
+                          command interface to the Fill Device Micro Test
+                          Utility, KT-956-0266-00.
+
+===============================================================================
+
+Version: 1.1.1
+
+Reason for release: DRCU FD Production Test GUI v1.1.0 (initial release).
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- drcu_fd_prod_test.py - Fixed board-level anti-tamper light sensor test.  This
+                         was originally designed to handle a hardware issue
+                         where there wasn't sufficient power to run on battery
+                         backup.  There is still a hardware issue whereby
+                         IRQ_TAMPER_N is pulled low by the SoC when it is held
+                         in reset or powered down.
+
+===============================================================================
+
+Version: 1.1.0
+
+Reason for release: DRCU FD Production Test GUI v1.0.0 (initial release).
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- drcu_fd_prod_test.py - new module incorporating test cases for the DRCU
+                         Motherboard and Unit.
+
+- drcu_fd_prod_test_gui.iss - Inno Setup project for creating the DRCU and FD
+                              Production Test GUI installer file.
+
+- drcu_fd_prod_test_gui.py - Tkinter GUI script for the DRCU and FD Production
+                             Test GUI.
+
+- drcu_fd_prod_test_gui_setup.py - py2exe script for converting the DRCU and FD
+                                   Production Test GUI into an Windows executable
+                                   file.
+
+- drcu_fd_program_devices.py - utility module for automated programming of
+                               devices on the DRCU and FD Motherboards.
+
+- drcu_fd_test_jig_intf.py - DRCU and FD Test Jig serial ASCII command interface
+                             wrapper module.
+
+- drcu_micro_test_intf.py - DRCU micro test utility serial ASCII command interface
+                            wrapper module.
+
+- drcu_plat_test_intf.py - DRCU platform test interfaces wrapper module.
+
+- rpi4_iperf3.py - module for starting and stopping an iPerf3 server on a
+                   remote machine using an SSH connection.
+
+- run_prod_test.py - utility module to run test cases for development purposes.
+
+- ssh.py - SSH client module for executing commands and file transfer with a
+           remote machine.
+
+- temperature_logging.py - test development script for logging DRCU temperature
+                           data to a CSV file.
+
+- win_iperf3.py - module for running iPerf3 client tests on a local Windows
+                  PC machine.
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- N/A
+
+===============================================================================
+
+Version: 1.0.0
+
+Reason for release: Initial release
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- N/A
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- N/A
+
+===============================================================================

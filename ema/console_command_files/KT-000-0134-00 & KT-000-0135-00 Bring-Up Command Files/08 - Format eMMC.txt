@@ -1,0 +1,3 @@
+mkfs.vfat /dev/mmcblk0p1
+mkfs.ext4 /dev/mmcblk0p2
+mkfs.vfat /dev/mmcblk0p3

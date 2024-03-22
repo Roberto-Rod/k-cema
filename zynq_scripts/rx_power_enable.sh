@@ -1,0 +1,5 @@
+#!/bin/bash
+# Enable +3V6 SMPS & IF ADC
+devmem 0x40014000 32 0x00000002
+devmem 0x40004000 32 0x00002000
+

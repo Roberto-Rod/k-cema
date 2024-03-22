@@ -1,0 +1,422 @@
+===============================================================================
+KT-956-0241-00 K-CEMA Active Backplane PC Test Scripts
+
+This archive contains PC-side K-CEMA test scripts for Active Backplane PCB and 
+Rack module testing.
+
+===============================================================================
+
+Version: 4.1.2
+
+Reason for release: Active Backplane Test Production GUI v1.0.3
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- active_backplane_prod_test - Added pings before accessing the AB board under
+  test using the Ethernet interface, this has been found to help Windows PCs
+  find the AB and prevent address not found errors occurring.
+  Improved granularity of test logic for the GbE connection tests.
+  Fixed error in test logic for the rack address discrete signal.
+  Added minor improvements from CSM test GUI to AbProdTest._ping() method.
+
+===============================================================================
+
+Version: 4.1.1
+
+Reason for release: Active Backplane Test Production GUI v1.0.2
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- active_backplane_prod_test - Improved error handling when closing the GUI.
+
+- serial_message_handler.py - Reduced serial timeout from 1.0 to 0.1 seconds.
+
+===============================================================================
+
+Version: 4.1.0
+
+Reason for release: Active Backplane Test Production GUI v1.0.1
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- ssh.py - Added close method to SSH class, maintaining consistency with CSM
+  PC test module.
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- active_backplane_port_test_gui.py - Improvements to test pass checking logic.
+
+===============================================================================
+
+Version: 4.0.0
+
+Reason for release: Initial version of Active Backplane Test Production GUI
+				    v1.0.0
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- active_backplane_prod_test.py - Test cases for production test GUI.
+
+- active_backplane_port_test_gui.iss - Inno Setup Compiler project file for the
+                                       production test GUI.
+
+- active_backplane_port_test_gui.py - Tkinter GUI, runs the test cases.
+
+- active_backplane_port_test_gui_setup.py - py2exe for production test GUI.
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+===============================================================================
+
+Version: 3.2.3
+
+Reason for release: New modules and updates in preparation for the Active 
+					Backplane Production Test GUI implementation.
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- ab_serial_msg_intf.py - Improved error handling for received messages.
+
+
+- gbe_switch.py - Re-factored so that GbeSwitch is a virtual base class and 
+  added concrete SerialGbeSwitch and TelnetGbeSwitch classes with context 
+  managers.
+				   
+- serial_message_handler.py - Added new functionality for processing messages 
+  headers.
+				   
+- ssh.py - Removed superfluous declaration of member attribute in SSH class.
+
+- vsc8514_init_test.py - Update to work with re-factored gbe_switch.py module
+  
+- win_iperf3.py - Improved error handling for missing executable files.
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- ab_test_jig_intf.py - Fixed bug in string find check for command responses.
+
+- tl_sg3428.py - Corrected errors in docstrings.
+
+===============================================================================
+
+Version: 3.2.2
+
+Reason for release: Added iPerf3 test and TP-Link interface modules ready for 
+					Active Backplane Production Test GUI implementation.
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- rpi4_iperf3.py - Utility functions for running an iPerf3 server over SSH on a 
+			       Rasbperry Pi 4.
+				   
+- ssh.py - Wrapper classes for an SSH client using the fabric library.
+
+- tl_sg3428.py - Provides a wrapper for the TP-Link TL-SG3428 Ethernet switch
+  serial console.
+  
+- win_iperf3.py - Utility functions for runnin an iPerf3 client test on a local
+  Windows host.
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+===============================================================================
+
+Version: 3.2.1
+
+Reason for release: Tidy up of error handling strategy across the modules.
+					Added context manager functions to make using the serial 
+					interface classes more usable.  Added in extra test jig 
+					and GbE switch interface functions
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- ab_program_devices.py - New utility module for programming TM4C1295NCPDT 
+  microcontroller using Segger J-Link and GbE Switch SPI Flash using ASIX
+  PRESTO programmer.
+  
+- ab_serial_msg_intf.py - Added context manager methods __enter__() and 
+  __exit__()to class AbSerialMsgInterface.  Commented out AbSerialMsgInterface 
+  class start/stop() methods as these are superseded by the context manager 
+  methods.
+  
+- ab_simple_test.py - Updated to use AbSerialMsgInterface class in context 
+  manager mode of operation.
+
+- ab_test_gui.py - Tidied up error handling and modified AbSerialMsgInterface
+  usage to use context manager rather than manually starting and stopping 
+  class instances.  Added functionality to erase/program microcontroller 
+  firmware and GbE switch SPI Flash devices.
+  
+- ab_test_jig_intf.py - Tidied methods for opening/closing the serial port and
+  added context manager __enter__() and __exit__() methods to improve 
+  AbTestJigInterface class usability.  Added new methods to support serial 
+  commands for reading ADC data and MAC addresses from the test jig.
+
+- gbe_switch.py - Added addtional functionality to allow GbE switch port 
+  statistics to be read back.  Added new functinality to allow port state to be 
+  queried.  Added new functionality to allow the Kirintec software part number 
+  and version to be read back.  Modified error handling to remove catch all try 
+  statements and allow errors to be raised to the host application.
+
+- serial_message_handler.py - Error handling tidy up, removed catch all try 
+  statements from MessageHandler rx/tx thread methods so that error's are raised 
+  to the host application.  Added MessageHandler class destructor and tidied up
+  error handling in stop tasks method.
+  
+- telnet_test.py - AbTelnetTest test_telnet_server() method updated to allow
+  the list of ports to test to be passed in as a parameter.
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+===============================================================================
+
+Version: 3.2.0
+
+Reason for release: Added support for full set of Active Backplane Test Jig
+Utility (KT-956-0223-00) serial commands.  Added support for new Active
+Backplane Firmware (KT-956-0194-00) Get Slot Number serial command.
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- ab_test_jig_intf.py - added new methods to AbTestJigInterface class to
+  support the full set of Active Backplane Test Jig Utility (KT-956-0223-00)
+  serial commands:
+    - Set Rack Address
+    - Assert System Reset
+    - Enabled PPS Output
+    - Get/Reset/Set Hardware Configuration Information
+
+- ab_serial_msg_intf.py - added new Active Backplane Firmware (KT-956-0194-00)
+  Get Slot Number method to the AbSerialMsgInterface class.
+
+- ab_test_gui.py - added new Active Backplane Firmware (KT-956-0194-00)
+  Get Slot Number command to GUI.
+
+- ab_simple_test.py - added new Active Backplane Firmware (KT-956-0194-00)
+  Get Slot Number command to test routine.
+
+- mac_address.py - new utility file for processing MAC addresses.
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+===============================================================================
+
+Version: 3.1.1
+
+Reason for release: Enhancements to ping through script for testing VSC7512
+to VSC8514 initialisation..
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- vsc8514_init_test.py - Increased number of ping retries to 40, approximately
+  2 minutes to allow extra time for the bring up.  Added extra information 
+  reporting statement if ping was successful but took longer than wanted.
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+===============================================================================
+
+Version: 3.1.0
+
+Reason for release: Enhancements to ping through script for testing VSC7512
+to VSC8514 initialisation and GbE Switch CLI interface wrapper class.
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- gbe_switch.py - Added methods for:
+    - Reading VSC8514 PHY junction temperature
+    - Checking VSC7512 QSGMII sync status
+    - Checking VSC8514 QSGMII sync status
+
+- vsc8514_init_test.py - Enhancements to test procedure.  Added new optional
+  parameter to specify Active Backplane IP address, if set this is used to
+  check VSC7512 and VSC8514 QSGMII sync status when a failure occurs.
+  Increased number of retries and captures test steps and times for failures.
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+===============================================================================
+
+Version: 3.0.1
+
+Reason for release: Minor enhancement to ping through script for testing VSC7512 
+to VSC8514 initialisation.
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- vsc8514_init_test.py - Builds list of test pass times, at the end of test
+  calculates min/max/average and prints results.  Board under test powered down
+  at the end of the test.
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+
+===============================================================================
+
+Version: 3.0.0
+
+Reason for release: Add new Python test scripts for test jig interface and
+ping through check for testing VSC7512 to VSC8514 initialisation.
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- vsc8514_init_test.py - Added new script for testing VSC8514 to VSC7512
+  QSGMII initialisation.  Power-cycles the board and performs a ping-through
+  test to confirm the switch becomes active within a time limit.  See script
+  header block for usage details.
+
+- ab_test_jig_intf.py - Added new script for handling the Active Backplane
+  serial command set for communicating with the Active Backplane Test Jig
+  Utility, KT-956-0223-00.  Initial version only supports the DC-DC Enable
+  command.
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+===============================================================================
+
+Version: 2.0.0
+
+Reason for release: Add new Python test scripts
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- serial_message_handler.py - Added new file for handling serial messages 
+  using the K-CEMA serial protocol specified in KT-957-0143-00.  This is a 
+  generic module intended to be used by composition with a higher level class 
+  implementing a unit specific command set.
+  
+- ab_serial_msg_intf.py - Added new file for handling the Active Backplane 
+  serial command set for communicating with the Active Backplane Firmware, 
+  KT-956-0194-00.
+  
+- ab_simple_test.py - Added new file to demonstrate how to use the 
+  ab_serial_msg_intf.py module to communicate with the Active Backplane serial
+  interface.
+  
+- ab_test_gui.py - Added new file, implements a simple Tkinter GUI application
+  that can be used to exercise the Active Backplane serial command set.
+  
+- telnet_stress_test.py - Added new file for performing stress tests on the
+  Active Backplane Firmware Telnet server(s).  Exercises all of the Telnet
+  servers concurrently to stress the Ethernet interfaces and LwIP stack.
+  
+- Added PyCRC and PySerial libraries used to implement the Active Backplane
+  serial interface.
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- gbe_switch.py - Added GbeSwitch.__repr__() method and added extra string
+  search to the GbeSwitch.ping() method to make it more robust.
+
+- telnet_test.py - Added docstrings to file, tidied up exception handling in 
+  AbTelnetTest.test_telnet_server() method.
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 1.0.0
+
+Reason for release: Initial release under KT-956-0241-00 release number
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- Added module for accessing the GbE Switch, reads device temperature from 
+  internal registers.  Allows connected MAC addresses to be read.  Search 
+  method for attached devices with LWIP AUTOIP addresses.  
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================

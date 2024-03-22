@@ -1,0 +1,30 @@
+umount /dev/mmcblk0p1
+umount /dev/mmcblk0p2
+umount /dev/mmcblk0p3
+fdisk /dev/mmcblk0
+d
+
+d
+
+d
+
+n
+p
+1
+
++128M
+y
+n
+p
+2
+ 
++3400M
+y
+n
+p
+3
+
++128M
+y
+w
+partprobe /dev/mmcblk0

@@ -1,0 +1,78 @@
+===============================================================================
+KT-956-0238-00 K-CEMA RCU PC Test Scripts
+
+This archive contains PC-side K-CEMA test scripts for RCU PCB and module 
+testing.
+
+===============================================================================
+
+Version: 1.1.1
+
+Reason for release: Update to LED test procedure and fixed commented out
+code in test procedure
+
+-------------------------------------------------------------------------------
+
+New Features / Issues Fixed:
+
+- rcu_unit_test.py: added command to set LEDs to full brightness, new command
+  that has been added to the operational firmware.  Added some sleep statements
+  and serial rx queue flushing to improve threading performance.
+
+- serial_message_handler.py: added some sleep statement to improve tx thread
+  performance.  Removed unnecessary log.debug statements to improve performance
+  of rx thread.  Added command to set LEDs to full brightness, new command that
+  has been added ot the operational firmware.
+
+===============================================================================
+
+Version: 1.1.0
+
+Reason for release: Update to LED test procedure and fixed commented out 
+code in test procedure
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- rcu_unit_test.py: updated LED and 1PPS test to cycle through all three LED
+  colours, Green->Red->Yellow to increase test coverage.
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- Removed commented out code in test procedure that would cause overall result
+  to be pass if the buzzer test result was fail
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================
+
+Version: 1.0.0
+
+Reason for release: Initial release
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- Initial release
+
+-------------------------------------------------------------------------------
+
+Issues Fixed:
+
+- None
+
+-------------------------------------------------------------------------------
+
+Known Issues
+
+- None
+
+===============================================================================

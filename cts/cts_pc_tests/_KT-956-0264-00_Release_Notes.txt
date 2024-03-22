@@ -1,0 +1,174 @@
+===============================================================================
+KT-956-0264-00 K-CEMA Integrated CTS PC Test Scripts
+
+This archive contains PC-side K-CEMA test scripts for the Integrated CTS PCBs
+and unit testing.
+
+===============================================================================
+
+Version: 1.4.1 - Integrated CTS Digital Board Production Test GUI v1.1.1
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- cts_prod_test.py - minor revision of IF path test limits based on analysis of
+                     first batch of boards tested by Kasdon.
+
+- cts_prod_test_gui.py - made status scrolled text box read-only.
+
+===============================================================================
+
+Version: 1.4.0 - CTS Scan Task GUI v1.0.0 and CTS Test GUI v1.0.1
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- cts_micro_test_intf.py - added optional ADC sample time parameter to Get RF
+                           Detector Reading command.
+
+- cts_scan_task_gui/.iss/.py/_setup.py - new CTS Scan Task GUI files.
+
+- cts_serial_msg_intf.py - added Send Start Scan command support for timing
+                           patterns.  Set default TCP port as 32.
+
+- cts_test_gui/.iss/.py - firmware update now supports older firmware versions
+                          that use Ack rather than Response messages to
+                          synchronise the firmware update process.
+
+===============================================================================
+
+Version: 1.3.1
+
+Added power meter TE drivers.
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- power_meter.py - new module providing VISA power meter base class.
+
+- power_meter_keysight_u200x.py - new module providing power meter driver
+                                  implementation for Keysight U2001A.
+
+===============================================================================
+
+Version: 1.3.0
+
+Initial release of CTS Test GUI v1.0.0]
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- cts_serial_msg_intf.py - Tidied up enumeration labels for message IDs.
+                           Command response checking updated in accordance with
+                           CTS Firmware, KT-956-0265-00, v0.0.3 onwards.
+
+- cts_test_gui.py - New file implementing the CTS Test GUI Tkinter application.
+
+- firmware_update.py - Utility script for updating firmware over the binary
+                       serial message interface.
+
+===============================================================================
+
+Version: 1.2.0
+
+Initial release of CTS Digital Board Production Test GUI v1.1.0
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- csm_plat_test_intf.py - New file added, interface to the CSM Platform Test
+                          scripts for testing am iCTS installed in a CSM.
+
+- cts_prod_test.py - Added automation for the Digital Board IF Path test case.
+                     Started adding bits for testing am CTS installed in a CSM.
+
+- cts_prod_test_gui.py - Added automation for the Digital Board IF Path test
+                         case.  Searches for compatible VISA Signal Generators
+                         when the GUI is launched.
+
+- cts_serial_msg_intf.py - New file added, provides the KT-957-0143-00 serial
+                           binary command set for the CTS Operational Firmware,
+                           KT-956-0265-00.
+
+- cts_test_jig_intf.py - Added option to set serial rx timeout which can be
+                         used to reduce the time taken to synchronise the
+                         command prompt.
+
+- serial_message_handler.py - New file added, provides UART and TCP serial
+                              message handling functionality used by the
+                              CtsSerialMsgIntf class.
+
+- signal_generator.py - New file added, provides base class for VISA Signal
+                        Generator, device specific Signal Generators inherit
+                        from this base class.
+
+- signal_generator_keysight_n5x.py - New file added, provides concrete Signal
+                                     Generator class instances for the Keysight
+                                     Technologies N5xxx series.
+
+- signal_generator_marconi_202x.py - New file added, provides concrete Signal
+                                     Generator class instances for the Marconi
+                                     202x series.
+
+- ssh.py - New file added, used by CsmPlatformTest to run CSM Platform Test
+           Scripts.
+
+- visa_test_equipment.py - New file added, provides base class that all VISA
+                           based test equipment drivers inherit from.
+
+===============================================================================
+
+Version: 1.1.0
+
+Initial release of CTS Digital Board Production Test GUI v1.0.0
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- cts_micro_test_intf.py - wrapper for the CTS Digital Board test utility
+                           serial command interface.
+
+- cts_prod_test.py - test cases for the CTS Digital Board
+
+- cts_prod_test_gui.iss - InnoSetup project script to make installer for the
+                          CTS Digital Board production test GUI.
+
+- cts_prod_test_gui.py - Tkinter GUI script for the CTS Production test GUI.
+
+- cts_prod_test_gui_setup.py - py2exe script for making Windows executable.
+
+- cts_program_devices.py - utility functions for programming devices on the
+                           Digital Board.
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- cts_test_jig_intf.py - big update to add support for the full suite of test
+                         jig serial commands.
+
+===============================================================================
+
+Version: 1.0.0
+
+Reason for release: Initial release
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- N/A
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- N/A
+
+===============================================================================

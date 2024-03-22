@@ -1,0 +1,40 @@
+This is version 1.3.1 of the KT-956-0239-00 K-CEMA System Test Scripts archive
+
+1.3.1
+Requesting system type for quick test
+
+1.3.0
+Using KT-956-0231-00 EMA Platform Test Scripts, v1.5.0
+Using KT-956-0234-00 CSM Platform Test Scripts, v2.0.3
+
+1.2.3
+Using KT-956-0231-00 EMA Platform Test Scripts, v1.4.9
+
+1.2.2
+Using KT-956-0231-00 EMA Platform Test Scripts, v1.4.6
+(note this was done outside Git repository)
+
+1.2.1
+Fixed issue with RF port selection causing index error on S2P file table
+
+1.2.0
+Supporting eHB in manpack test
+
+1.1.2
+Initial manpack support
+
+1.1.1
+Using KT-956-0231-00 v1.3.2
+
+1.1.0
+ema_p2.tgz using KT-956-0231-00 v1.3.1
+csm_p2.tgz using KT-956-0234-00 v1.9.1
+Deploying scripts to /tmp
+Updated ssh.py to match Maintenance Tool implementation
+
+1.0.0
+ema_p2.tgz using KT-956-0231-00 v1.2.6
+csm_p2.tgz using KT-956-0234-00 v1.6.5
+
+0.0.9
+High band min. power during test dropped by 1 dB

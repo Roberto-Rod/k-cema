@@ -1,0 +1,104 @@
+===============================================================================
+KT-956-0258-00 K-CEMA DRCU and FD Platform Test Scripts
+
+This archive contains platform-side K-CEMA test scripts for the Display RCU and
+Fill Device PCBs and unit testing.
+
+===============================================================================
+
+Version: 1.2.0
+
+Reason for release: Update to support Fill Device production testing.
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- bit_report_0199.py - BIT sensor report for the Fill Device Motherboard.
+
+- built_in_test_0199.py - BIT sensor driver for the Fill Device Motherboard.
+
+- fd_keypad.py - Module for production testing the Fill Device Keypad.
+
+- fd_serial_msg_intf.py - Serial interface driver for the Fill Device STM32
+                          microcontroller operational firmware.
+
+- serial_message_handler.py - Generic serial interface driver for the K-CEMA
+                              serial protocol.
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- hardware_unit_config.py - Added support for setting the Fill Device assembly
+                            configuration information.
+
+===============================================================================
+
+Version: 1.1.0
+
+Reason for release: Update to support DRCU Production Test GUI.
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- dev_mem.py - new wrapper module for the devmem2 Linux utility, allows memory
+               mapped registers to be read and written.
+
+- generate_test_tgz.py - new utility module to create release tgz archive
+                         files.
+
+- imx8m_temp_sensor.py - new module used to read the IMX8M SoM temperature
+                         sensors.
+
+- nvme_temp_sensor.py - new module that can be used to get the temperature of
+                        the NVMe SSD.
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- bit_report_0198.py - added AD7415, GbE Switch and SoM temperature sensors to
+                       BIT report.
+
+- gbe_switch.py - added option to print the MAC address table when executing
+                  the file as a script from the command line.
+
+- hardware_unit_config.py - added option to print the board configuration
+                            information as a JSON string when executing the
+                            file as a script from the command line.
+
+- keypad_func_button_monitor.py - added option to scan and print the function
+                                  buttons state "once" rather than "continuously"
+                                  when executing the file as a script from the
+                                  command line.
+
+- poe_pse_report.py - added temperature to the reported information, added
+                      option to output the information as a JSON string when
+                      executing the file as a script from the command line.
+
+- tamper.py - added command line options to report the RTC time and perform a
+              unit-level BIT on the tamper sensors.
+
+- tamper_test.py - fixed logic for testing the micro-switch tamper channel.
+
+===============================================================================
+
+Version: 1.0.0
+
+Reason for release: Initial release
+
+-------------------------------------------------------------------------------
+
+New Features:
+
+- N/A
+
+-------------------------------------------------------------------------------
+
+Changes/Issues Fixed:
+
+- N/A
+
+===============================================================================

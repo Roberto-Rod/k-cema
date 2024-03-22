@@ -1,0 +1,13 @@
+This is version 2.0 of the KT-956-0232-00 K-CEMA NTM Bring-Up Commands archive.
+
+The files in this archive are intended to be used with the test procedure:
+"KT-000-0134-00 / KT-000-0135-00 NTM Digital Board Bring-Up (Flash Images)"
+http://confluence.kirintec.local/pages/viewpage.action?pageId=15435383
+
+See the file VERSION.txt for the version of the archive and ensure that this is the latest archive version before commencing test on a hardware batch.
+
+After copying the files onto a test PC, the server IP in the files must be changed to the IP address of the link-local adapter on the test PC. The link-local adapter is the adapter that is connected to the Device Under Test, it must be configured to use an automatic IPv4 address and it must not be connected to a network with a DHCP server. Find the link-local address using "ipconfig" in the Windows Command Prompt, it will be of the format 169.254.x.x. Perform a find/replace on all files in this archive, replacing the address 169.254.152.97 with the link-local address of the test PC.
+
+Version 2.0
+-----------
+Updated partitioning to include another VFAT partition (mmcblk0p3) at the end of the eMMC.

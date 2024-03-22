@@ -1,0 +1,7 @@
+cd /run/media/mmcblk0p1
+mount /dev/mmcblk1p2 /tmp
+cd /tmp
+cp /run/media/mmcblk0p1/csm_p2.tgz csm_p2.tgz
+tar -xvzf csm_p2.tgz
+cd /
+umount /tmp

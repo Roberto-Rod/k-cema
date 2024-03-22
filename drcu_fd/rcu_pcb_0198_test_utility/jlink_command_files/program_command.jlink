@@ -1,0 +1,8 @@
+si 1
+speed 4000
+r
+h
+loadbin ../bin/KT-956-0256-00.bin,0
+r
+g
+exit

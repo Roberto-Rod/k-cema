@@ -1,0 +1,6 @@
+root
+root
+
+
+cd /run/media/mmcblk0p1
+flashcp -v /run/media/mmcblk0p1/KT-956-0195-00.bin /dev/mtd0

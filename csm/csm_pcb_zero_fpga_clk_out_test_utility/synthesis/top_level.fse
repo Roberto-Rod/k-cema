@@ -1,0 +1,36 @@
+
+fsm_encoding {732803281} onehot
+
+fsm_state_encoding {732803281} 0000 {0000000000000000}
+
+fsm_state_encoding {732803281} 0001 {0000000000000011}
+
+fsm_state_encoding {732803281} 0010 {0000000000000101}
+
+fsm_state_encoding {732803281} 0011 {0000000000001001}
+
+fsm_state_encoding {732803281} 0100 {0000000000010001}
+
+fsm_state_encoding {732803281} 0101 {0000000000100001}
+
+fsm_state_encoding {732803281} 0110 {0000000001000001}
+
+fsm_state_encoding {732803281} 0111 {0000000010000001}
+
+fsm_state_encoding {732803281} 1000 {0000000100000001}
+
+fsm_state_encoding {732803281} 1001 {0000001000000001}
+
+fsm_state_encoding {732803281} 1010 {0000010000000001}
+
+fsm_state_encoding {732803281} 1011 {0000100000000001}
+
+fsm_state_encoding {732803281} 1100 {0001000000000001}
+
+fsm_state_encoding {732803281} 1101 {0010000000000001}
+
+fsm_state_encoding {732803281} 1110 {0100000000000001}
+
+fsm_state_encoding {732803281} 1111 {1000000000000001}
+
+fsm_registers {732803281} {CurrState_SISt[15]}  {CurrState_SISt[14]}  {CurrState_SISt[13]}  {CurrState_SISt[12]}  {CurrState_SISt[11]}  {CurrState_SISt[10]}  {CurrState_SISt[9]}  {CurrState_SISt[8]}  {CurrState_SISt[7]}  {CurrState_SISt[6]}  {CurrState_SISt[5]}  {CurrState_SISt[4]}  {CurrState_SISt[3]}  {CurrState_SISt[2]}  {CurrState_SISt[1]}  {CurrState_SISt_i[0]} 

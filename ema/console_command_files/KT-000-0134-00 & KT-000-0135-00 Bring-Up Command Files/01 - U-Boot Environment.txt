@@ -1,0 +1,13 @@
+env default -a
+setenv autoload 'no'
+setenv fpga_img 'system.bin'
+setenv fpga_size '0xcb44bc'
+setenv fpga_load 'fpga load 0 ${loadaddr} ${fpga_size}'
+setenv fpga_tftp 'tftpboot ${loadaddr} system.bin'
+setenv fpga_mmc_boot 'run cp_fpga2ram; run fpga_load'
+setenv stop_fans 'i2c mw 0x2F 0x40.1 0;i2c mw 0x2F 0x80.1 0'
+setenv set_leds 'mw.b 0x40030000 0xcc 6; mw.b 0x40030008 0 16'
+setenv en_dgtr 'mw.l 0x40014000 0x66'
+setenv cp_fpga2ram 'mmcinfo && fatload mmc ${sdbootdev} ${loadaddr} ${fpga_img}'
+setenv default_bootcmd 'run uenvboot; run fpga_mmc_boot; run set_leds; run stop_fans; run en_dgtr; run cp_kernel2ram && bootm ${netstart}'
+saveenv

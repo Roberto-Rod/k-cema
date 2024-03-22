@@ -1,0 +1,5 @@
+cd /run/media/mmcblk0p1
+mount /dev/mmcblk1p1 /tmp
+cp system.bin /tmp/system.bin
+cp image.ub /tmp/image.ub
+umount /tmp

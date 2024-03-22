@@ -1,0 +1,8 @@
+si 1
+speed 4000
+r
+h
+loadbin ../bin/rcu_pcb_0146_test_utility.bin,0
+r
+g
+exit

@@ -1,0 +1,18 @@
+{
+    "logging":
+    {
+        "<default>": "info"
+    },
+    "forward_thresholds":
+    {
+        "low": 2146,
+        "mid": 2621,
+        "high": 1535
+    },
+    "difference_thresholds":
+    {
+        "low": 286,
+        "mid": 286,
+        "high": 327
+    }
+}
